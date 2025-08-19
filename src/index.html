@@ -1,0 +1,949 @@
+<!DOCTYPE html> <!-- Indica el tipo de documento HTML5 -->
+<html lang="es"> <!-- Comienza el documento HTML en español -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLEZ COMUNICACIONES - Los mejores precios del mercado</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="imagenes/icons/faviconglez.ico">
+    <style>
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        body {
+            background: #0f58db !important; /* Fondo azul */
+            width: 100vw;
+            min-height: 100vh;
+        }
+        main, .navbar-superior, footer {
+            max-width: 100vw;
+            box-sizing: border-box;
+        }
+        .articulos,
+        .articulos.fila-extra {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch; /* Todas las casillas alineadas a la misma altura */
+            gap: 2.2rem; /* Más separación entre casillas */
+            padding: 1.5rem 0;
+            background: #143e7a !important; /* Fondo acorde con el azul de la página */
+            border-radius: 0;
+            box-shadow: none;
+            margin-bottom: 1.2rem; /* Menos espacio entre secciones */
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .articulos > article,
+        .articulos.fila-extra > article {
+            flex: 0 1 260px; /* Todas las casillas ocupan el mismo ancho */
+            max-width: 260px;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        .slider-destacados {
+            max-width: 100vw;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body {
+            background: #0f58db; /* Azul solicitado */
+        }
+        .navbar-superior {
+            width: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 2rem;
+            position: fixed; /* Cambiado de sticky a fixed */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px #143e7a;
+        }
+        .navbar-superior .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .navbar-superior .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .navbar-superior nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-superior nav ul li {
+            position: relative;
+        }
+        .navbar-superior nav ul li a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+        .navbar-superior nav ul li a:hover,
+        .navbar-superior nav ul li a:focus {
+            background: #00aaff;
+            color: #fff;
+        }
+        /* Submenú Galería */
+        .submenu-galeria {
+            display: none;
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: #eaf6fb;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #143e7a;
+            min-width: 160px;
+            padding: 0.5rem 0.3rem;
+            z-index: 1001;
+        }
+        .submenu-galeria ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin: 0;
+            padding: 0;
+        }
+        .submenu-galeria ul li a {
+            color: #0099cc;
+            background: #fff;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            box-shadow: 0 1px 4px #eaf6fb;
+            letter-spacing: 0.03em;
+            transition: background 0.2s;
+            display: block;
+        }
+        .submenu-galeria ul li a:hover {
+            background: #0099cc;
+            color: #fff;
+        }
+        /* Contacto desplegable */
+        .submenu-contacto {
+            display: none;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #eaf6fb;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #143e7a;
+            min-width: 220px;
+            padding: 1rem;
+            z-index: 1001;
+        }
+        .submenu-contacto a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            background: none;
+            color: #0099cc;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 0.6rem 0.5rem;
+            text-decoration: none;
+            box-shadow: none;
+            margin-bottom: 0.5rem;
+        }
+        .submenu-contacto a img {
+            width: 24px;
+            height: 24px;
+        }
+        .submenu-contacto a:hover {
+            background: #0099cc;
+            color: #fff;
+        }
+        .submenu-contacto iframe {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            border: 0;
+            margin-bottom: 0.7rem;
+        }
+        .submenu-contacto form {
+            background: #f7fafd;
+            border-radius: 12px;
+            padding: 0.7rem;
+            box-shadow: 0 2px 8px #eaf6fb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .submenu-contacto form label {
+            font-weight: 600;
+            color: #143e7a;
+        }
+        .submenu-contacto form input,
+        .submenu-contacto form textarea {
+            padding: 0.4rem;
+            border-radius: 8px;
+            border: 1px solid #c2e9fb;
+        }
+        .submenu-contacto form button {
+            background: linear-gradient(90deg,#0f58db 0%,#0099cc 100%);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #eaf6fb;
+        }
+        .submenu-contacto form button:hover {
+            background: #0099cc;
+        }
+        /* Espacio debajo del menú */
+        .espacio-menu {
+            height: 80px;
+            width: 100%;
+        }
+        .casilla-portada.portada-full {
+            background: #f7fafd; /* Blanco muy suave */
+            border-radius: 24px;
+            box-shadow: 0 4px 24px #eaf6fb;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        /* Igualar tamaño de imágenes de productos */
+        .articulos img,
+        .img-btn img {
+            width: 200px !important; /* Más grandes */
+            height: 200px !important;
+            max-width: 90vw !important;
+            max-height: 36vh !important;
+            object-fit: cover !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px #143e7a;
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+
+        /* Estilos para los encabezados de las secciones de celulares */
+        .seccion-marca {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #0f58db 0%, #143e7a 100%);
+            padding: 1rem 0;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px #143e7a;
+        }
+    </style>
+</head>
+
+    </div>
+    <!-- ======= MENÚ SUPERIOR ======= -->
+    <div class="navbar-superior">
+        <div class="logo">
+            <img src="imagenes/icons/iconglez.jpg" alt="Logo Glez comunicaciones">
+            <span style="font-size:1.5rem;font-weight:800;letter-spacing:0.08em;">Glez comunicaciones</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="servicios.html" target="_blank">Servicios</a></li>
+                <li><a href="nosotros.html" target="_blank">Nosotros</a></li> <!-- Cambiado para abrir ventana dedicada -->
+                <li id="galeria-li">
+                    <a href="#" id="galeria-toggle">Galería <span style="font-size:1.1em;">&#9662;</span></a>
+                    <!-- Submenú galería actualizado -->
+                    <div class="submenu-galeria" id="submenu-galeria" style="
+    background: linear-gradient(135deg, #eaf6fb 0%, #0f58db 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #143e7a;
+    min-width: 160px;
+    padding: 0.5rem 0.3rem;
+    z-index: 1001;
+">
+    <ul style="display: flex; flex-direction: column; gap: 0.3rem; margin: 0; padding: 0;">
+        <li>
+            <a href="#iphone" style="
+                background: linear-gradient(90deg, #143e7a 0%, #0099cc 100%);
+                color: #fff;
+                font-weight: 600;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                border-radius: 10px;
+                font-size: 0.95rem;
+                box-shadow: 0 1px 4px #eaf6fb;
+                letter-spacing: 0.03em;
+                transition: background 0.2s;
+                display: block;
+            ">iPhone</a>
+        </li>
+        <li>
+            <a href="#redmi" style="
+                background: linear-gradient(90deg, #143e7a 0%, #0099cc 100%);
+                color: #fff;
+                font-weight: 600;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                border-radius: 10px;
+                font-size: 0.95rem;
+                box-shadow: 0 1px 4px #eaf6fb;
+                letter-spacing: 0.03em;
+                transition: background 0.2s;
+                display: block;
+            ">Redmi</a>
+        </li>
+    </ul>
+</div>
+                </li>
+                <li id="contacto-li">
+                    <a href="#" id="contacto-toggle">Contacto <span style="font-size:1.1em;">&#9662;</span></a>
+                    <div class="submenu-contacto" id="submenu-contacto">
+                        <a href="https://wa.me/18494301365" target="_blank" style="
+                            background: linear-gradient(90deg,#25d366 0%,#128c7e 100%);
+                            color: #fff;
+                            font-weight: 700;
+                            border-radius: 12px;
+                            padding: 0.6rem 0.5rem;
+                            text-decoration: none;
+                            box-shadow: 0 2px 8px #eaf6fb;
+                            margin-bottom: 0.5rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                        ">
+                            <img src="imagenes/icons/whatsapp.png" alt="WhatsApp" style="width:24px;height:24px;"> WhatsApp
+                        </a>
+                        <a href="https://www.instagram.com/glez_comunicaciones.oficial?igsh=MWs3YW5wY2F0bmprdA%3D%3D&utm_source=qr" target="_blank" style="
+                            background: linear-gradient(90deg,#fd5949 0%,#d6249f 100%);
+                            color: #fff;
+                            font-weight: 700;
+                            border-radius: 12px;
+                            padding: 0.6rem 0.5rem;
+                            text-decoration: none;
+                            box-shadow: 0 2px 8px #eaf6fb;
+                            margin-bottom: 0.5rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                        ">
+                            <img src="imagenes/icons/instagram.png" alt="Instagram" style="width:24px;height:24px;"> Instagram
+                        </a>
+                        <a href="mailto:eddisongonzalez44@gmail.com" target="_blank" style="
+                            background: linear-gradient(90deg,#ea4335 0%,#c5221f 100%);
+                            color: #fff;
+                            font-weight: 700;
+                            border-radius: 12px;
+                            padding: 0.6rem 0.5rem;
+                            text-decoration: none;
+                            box-shadow: 0 2px 8px #eaf6fb;
+                            margin-bottom: 0.5rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                        ">
+                            <img src="imagenes/icons/gmail.png" alt="Gmail" style="width:24px;height:24px;"> Gmail
+                        </a>
+                        <iframe
+                            src="https://www.google.com/maps?q=Glez+comunicaciones&output=embed"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <!-- Formulario eliminado -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="espacio-menu"></div> <!-- Espacio para evitar que el contenido quede detrás del menú -->
+
+    <!-- =================== CONTENIDO PRINCIPAL =================== -->
+    <main>
+        <!-- ======= LÍNEA DIVISORIA Y BIENVENIDA ======= -->
+        <hr style="width:100vw; margin:0 0 0 0; border:0; border-top:3px solid rgba(0,0,0,0.05);">
+        <section id="bienvenida-principal" style="
+            width: 100vw;
+            background: linear-gradient(90deg, #0f58db 0%, #0099cc 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0;
+            box-shadow: 0 2px 12px #143e7a;
+        ">
+            ¡Bienvenido a Glez comunicaciones! Los mejores precios, atención y variedad en celulares y accesorios.
+        </section>
+
+        <!-- ======= ESPACIO ENTRE SECCIONES ======= -->
+        <div style="height: 40px;"></div>
+
+        <!-- ======= BARRA DE PRODUCTOS DESTACADOS ======= -->
+        <h2 class="seccion-marca" style="text-align:center; color:#0099cc; margin:2rem 0 1.5rem 0;">Productos destacados</h2>
+        <div class="articulos" style="
+            background: #0f58db;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px #143e7a;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            max-width: 100vw;
+            margin-left: auto;
+            margin-right: auto;
+        ">
+            <!-- === Primer artículo destacado === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/tecno/tecnospark10pro.jpg" alt="Tecno Spark 10 Pro">
+                </button>
+                <h2>Tecno Spark 10 Pro</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 9,200</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Lanzamiento: marzo de 2023</li>
+                        <li>Marca: Tecno</li>
+                        <li>Android 13, HiOS 12.6</li>
+                        <li>8GB RAM, 128GB almacenamiento, cámara 50MP</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Segundo artículo destacado === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphonex.jpg" alt="iPhone X">
+                </button>
+                <h2>iPhone X</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 11,000</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Pantalla Super Retina XDR</li>
+                        <li>Cámara dual 12MP</li>
+                        <li>Batería de larga duración</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Tercer artículo destacado === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/redmi/redminote144g.jpg" alt="Redmi Note 14 4G">
+                </button>
+                <h2>Redmi Note 14 4G</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 13,500</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Pantalla FHD+ de 6.5"</li>
+                        <li>Batería 5000mAh</li>
+                        <li>Cámara cuádruple 50MP</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Cuarto artículo destacado === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphonex.jpg" alt="iPhone 1">
+                </button>
+                <h2>iPhone X</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 12,950</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Pantalla Super Retina XDR</li>
+                        <li>Cámara dual 12MP</li>
+                        <li>Batería de larga duración</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Quinto artículo destacado === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/tecno/tecnospark20pro.jpg" alt="Tecno 2">
+                </button>
+                <h2>Tecno Spark 20 PRO</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 14,900</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Sistema operativo: Android 13 <br><span style="color:#0099cc;font-size:0.95em;"></span></li>
+                        <li>Procesador: MediaTek Helio G99 <br><span style="color:#0099cc;font-size:0.95em;"></span></li>
+                        
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+        <!-- ======= BARRA DIVISORA ======= -->
+        <hr style="width:90%;margin:2rem auto;border:0;border-top:3px solid rgba(0,0,0,0.05);">
+
+        <!-- ======= TÍTULO DE SECCIÓN IPHONE ======= -->
+        <h2 id="iphone" class="seccion-marca" style="
+    text-align:center;
+    color:#fff;
+    margin-bottom:1.5rem;
+    background: linear-gradient(90deg, #0f58db 0%, #143e7a 100%);
+    padding: 1rem 0;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #143e7a;
+">iPhone</h2>
+
+        <!-- ======= SOLO 5 CASILLAS DE PRODUCTOS IPHONE ======= -->
+        <div class="articulos fila-extra" style="
+    background: #000000;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+">
+            <!-- === Primera casilla === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem; position:relative;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphone SE.png" alt="iPhone SE">
+                </button>
+                <h2>iPhone SE</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 23,423</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Cámara de 50 MP.</li>
+                        <li>bateria de 5000 mAh.</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Segunda casilla === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphone11.png" alt="iPhone 2">
+                </button>
+                <h2>iPhone 11</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 13,700</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Cámara de 12 MP.</li>
+                        <li>Batería de 5400 mAh.</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Tercera casilla === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphone12mini.jpg" alt="iPhone 3">
+                </button>
+                <h2>iPhone 12 mini</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 14,000</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Cámara con enfoque automático.</li>
+                        <li>Batería de 2227 mAh.</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Cuarta casilla === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphone13.jpg" alt="iPhone 4">
+                </button>
+                <h2>iPhone 13</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 32,700</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Cámara de 12 MP.</li>
+                        <li>Batería de 3240 mAh.</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- === Quinta casilla === -->
+            <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+                <button class="img-btn">
+                    <img src="imagenes/iphone/iphonese4.png" alt="iPhone 5">
+                </button>
+                <h2>iPhone SE</h2>
+                <p class="precio"><strong>Precio:</strong> <span>RD$ 36,000</span></p>
+                <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+                <div class="mas-info-flotante" style="display:none;">
+                    <button onclick="cerrarMasInfo(this)" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        cursor: pointer;
+                    ">&times;</button>
+                    <ul style="text-align:left; margin:0 1rem;">
+                        <li>Cámara de 12 MP.</li>
+                        <li>Batería de 2018 mAh.</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+        <!-- ======= BARRA DIVISORA ======= -->
+        <hr style="width:100vw; margin:2rem 0 0 0; border:0; border-top:3px solid rgba(0,0,0,0.05);">
+
+        <!-- ======= TÍTULO DE SECCIÓN REDMI ======= -->
+        <h2 id="redmi" class="seccion-marca" style="
+    text-align:center;
+    color:#fff;
+    margin-bottom:1.5rem;
+    background: linear-gradient(90deg, #0f58db 0%, #143e7a 100%);
+    padding: 1rem 0;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #143e7a;
+">Redmi</h2>
+
+        <!-- ======= SOLO 5 CASILLAS DE PRODUCTOS REDMI ======= -->
+        <div class="articulos fila-extra" style="
+    background: #0f58db;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+">
+    <!-- === Primera casilla === -->
+    <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+        <button class="img-btn">
+            <img src="imagenes/redmi/redminote11pro.jpg" alt="Redmi 1">
+        </button>
+        <h2>Redmi Note 11 Pro</h2>
+        <p class="precio"><strong>Precio:</strong> <span>RD$12,500</span></p>
+        <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+        <div class="mas-info-flotante" style="display:none;">
+            <button onclick="cerrarMasInfo(this)" style="
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+            ">&times;</button>
+            <ul style="text-align:left; margin:0 1rem;">
+                <li>cámara de 12 MP.</li>
+                <li>Batería de 4000 mAh.</li>
+            </ul>
+        </div>
+    </article>
+    <!-- === Segunda casilla === -->
+    <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+        <button class="img-btn">
+            <img src="imagenes/redmi/redminote12s.jpg" alt="Redmi 2">
+        </button>
+        <h2>Redmi Note 12S</h2>
+        <p class="precio"><strong>Precio:</strong> <span>RD$11,500</span></p>
+        <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+        <div class="mas-info-flotante" style="display:none;">
+            <button onclick="cerrarMasInfo(this)" style="
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+            ">&times;</button>
+            <ul style="text-align:left; margin:0 1rem;">
+                <li>cámara de 108 MP.</li>
+                <li>Batería de 5000 mAh.</li>
+            </ul>
+        </div>
+    </article>
+    <!-- === Tercera casilla === -->
+    <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+        <button class="img-btn">
+            <img src="imagenes/redmi/redmi13pro5g.png" alt="Redmi 3">
+        </button>
+        <h2>Redmi 13 PRO 5G</h2>
+        <p class="precio"><strong>Precio:</strong> <span>RD$13,750</span></p>
+        <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+        <div class="mas-info-flotante" style="display:none;">
+            <button onclick="cerrarMasInfo(this)" style="
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+            ">&times;</button>
+            <ul style="text-align:left; margin:0 1rem;">
+                <li>cámara de 108 MP.</li>
+                <li>Batería de 5400 mAh.</li>
+            </ul>
+        </div>
+    </article>
+    <!-- === Cuarta casilla === -->
+    <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+        <button class="img-btn">
+            <img src="imagenes/redmi/redmi14c.png" alt="Redmi 4">
+        </button>
+        <h2>Redmi 14C</h2>
+        <p class="precio"><strong>Precio:</strong> <span>RD$6,350</span></p>
+        <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+        <div class="mas-info-flotante" style="display:none;">
+            <button onclick="cerrarMasInfo(this)" style="
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+            ">&times;</button>
+            <ul style="text-align:left; margin:0 1rem;">
+                <li>cámara de 50 MP.</li>
+                <li>Batería de 5000 mAh.</li>
+            </ul>
+        </div>
+    </article>
+    <!-- === Quinta casilla === -->
+    <article style="background:#000; border-radius:18px; box-shadow:0 2px 12px #143e7a; padding:1.5rem; margin-bottom:2rem;">
+        <button class="img-btn">
+            <img src="imagenes/redmi/redmia5.jpg" alt="Redmi A5">
+        </button>
+        <h2>Redmi A5</h2>
+        <p class="precio"><strong>Precio:</strong> <span>RD$14,790</span></p>
+        <button class="btn-mas" onclick="mostrarMasInfo(this)">Más...</button>
+        <div class="mas-info-flotante" style="display:none;">
+            <button onclick="cerrarMasInfo(this)" style="
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                cursor: pointer;
+            ">&times;</button>
+            <ul style="text-align:left; margin:0 1rem;">
+                <li>cámara de 12 MP.</li>
+                <li>Batería de 5000 mAh.</li>
+            </ul>
+        </div>
+    </article>
+</div>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer style="
+        background: #143e7a;
+        color: #fff;
+        padding: 2rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    ">
+        <div style="position: relative; z-index: 1;">
+            <p style="margin:0; font-size:0.9rem;">
+                &copy; 2025 Glez comunicaciones. Todos los derechos reservados.
+            </p>
+            <button style="
+                margin-top: 1rem;
+                background: #0099cc;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 0.6rem 1.5rem;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                box-shadow: 0 2px 8px #143e7a;
+                transition: background 0.2s;
+            "
+            onclick="window.open('politicas-privacidad.html', '_blank')">
+                Políticas de Privacidad
+            </button>
+        </div>
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 0;
+        "></div>
+    </footer>
+
+    <script>
+document.getElementById('galeria-toggle').onclick = function(e) {
+    e.preventDefault();
+    const galeria = document.getElementById('submenu-galeria');
+    galeria.style.display = galeria.style.display === 'block' ? 'none' : 'block';
+    document.getElementById('submenu-contacto').style.display = 'none';
+};
+document.getElementById('contacto-toggle').onclick = function(e) {
+    e.preventDefault();
+    const contacto = document.getElementById('submenu-contacto');
+    contacto.style.display = contacto.style.display === 'block' ? 'none' : 'block';
+    document.getElementById('submenu-galeria').style.display = 'none';
+};
+// Ocultar submenús al hacer clic fuera
+document.addEventListener('click', function(e) {
+    if (!document.getElementById('galeria-li').contains(e.target)) {
+        document.getElementById('submenu-galeria').style.display = 'none';
+    }
+    if (!document.getElementById('contacto-li').contains(e.target)) {
+        document.getElementById('submenu-contacto').style.display = 'none';
+    }
+});
+// Mostrar bienvenida al hacer scroll
+window.addEventListener('scroll', function() {
+    const bienvenida = document.getElementById('bienvenida-scroll');
+    if (window.scrollY > 80) {
+        bienvenida.style.display = 'block';
+        bienvenida.style.opacity = '1';
+    } else {
+        bienvenida.style.opacity = '0';
+        setTimeout(() => {
+            bienvenida.style.display = 'none';
+        }, 300);
+    }
+});
+function mostrarMasInfo(btn) {
+    // Oculta cualquier info flotante abierta
+    document.querySelectorAll('.mas-info-flotante').forEach(function(div) {
+        div.style.display = 'none';
+    });
+    // Muestra la info flotante de este artículo
+    const info = btn.parentElement.querySelector('.mas-info-flotante');
+    if (info) info.style.display = 'block';
+}
+function cerrarMasInfo(btn) {
+    btn.parentElement.style.display = 'none';
+}
+// Opcional: cerrar al hacer clic fuera
+document.addEventListener('click', function(e) {
+    document.querySelectorAll('.mas-info-flotante').forEach(function(div) {
+        if (div.style.display === 'block' && !div.contains(e.target) && !div.parentElement.contains(e.target)) {
+            div.style.display = 'none';
+        }
+    });
+});
+</script>
+</body>
+</html>

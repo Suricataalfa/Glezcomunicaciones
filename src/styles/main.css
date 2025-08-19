@@ -1,0 +1,427 @@
+/* Variables CSS para colores */
+:root {
+  /* Colores principales */
+  --color-negro: #000000;
+  --color-azul: #1e90ff;
+  --color-blanco: #ffffff;
+
+  /* Colores secundarios */
+  --gris-claro: #f2f2f2;
+  --gris-oscuro: #333333;
+}
+
+/* Estilo general de la página */
+body {
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background-color: var(--color-blanco);
+  color: var(--color-azul);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-blanco);
+  color: var(--color-azul);
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 2px solid var(--color-azul);
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 -2px 12px rgba(30,144,255,0.08);
+  margin-top: 2rem;
+}
+
+/* Botones */
+button,
+.btn {
+  background-color: var(--color-azul);
+  color: var(--color-blanco);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #0066cc; /* azul más oscuro */
+}
+
+/* Secciones alternas */
+.section-light {
+  background-color: var(--gris-claro);
+  padding: 40px 20px;
+}
+
+.section-dark {
+  background-color: var(--gris-oscuro);
+  color: var(--color-blanco);
+  padding: 40px 20px;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-azul);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0066cc;
+}
+
+/* Contenedor de los artículos, usa grid para varias columnas y centra los artículos */
+.articulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin: 2rem 0;
+  background: linear-gradient(135deg, #eaf6fb 0%, #255acb 100%);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px #143e7a;
+  padding: 2rem;
+}
+
+/* Estilo individual para cada artículo */
+.articulos article {
+  background: var(--gris-claro);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  max-width: 300px;
+  color: var(--color-negro);
+  transition: background 0.3s;
+}
+
+/* Igualar tamaño de imágenes de productos más grande */
+.articulos img,
+.img-btn img {
+    width: 225px !important;
+    height: 225px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px #143e7a;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+/* Estilo para las imágenes de los artículos */
+.articulos img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* Barra de navegación superior */
+.navbar {
+  background-color: var(--color-azul);
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 1.5rem;
+}
+
+.navbar a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #0066cc;
+}
+
+/* Portada principal y acerca de nosotros */
+.casilla-portada.portada-full {
+  background: linear-gradient(135deg, #eaf6fb 0%, #f7fafd 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px #eaf6fb;
+  padding: 3rem 2rem;
+  margin: 3rem auto 2rem auto;
+  max-width: 950px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Ajuste para botones dentro de galería */
+.submenu-galeria a {
+  background: linear-gradient(90deg, #143e7a 0%, #0099cc 100%);
+  color: #fff !important;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 4px #eaf6fb;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.submenu-galeria a:hover {
+  background: #255acb;
+  color: #fff !important;
+}
+
+/* Ajusta la imagen para que no se deforme y se centre */
+.img-btn img {
+    max-width: 100%; /* No sobrepasa el ancho del botón */
+    max-height: 100%; /* No sobrepasa la altura del botón */
+    object-fit: contain; /* Mantiene la proporción y centra la imagen */
+    display: block; /* Elimina espacios extra */
+}
+
+/* Estilo para la sección de información extra */
+.info-extra {
+    background: #fff; /* Fondo blanco */
+    color: #222; /* Texto oscuro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2); /* Sombra */
+    padding: 2rem; /* Espaciado interno */
+    max-width: 500px; /* Ancho máximo */
+    margin: 2rem auto; /* Centrado */
+    text-align: center; /* Centra el texto */
+    position: relative; /* Para posicionar el botón de cerrar */
+    z-index: 10; /* Encima de otros elementos */
+}
+
+/* Estilo para el botón de cerrar */
+.info-extra button {
+    margin-top: 1rem; /* Espacio arriba */
+    padding: 0.5rem 1.5rem; /* Espaciado interno */
+    background: #0a1931; /* Fondo azul marino */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: background 0.2s;
+}
+
+.info-extra button:hover {
+    background: #13294b; /* Fondo más oscuro al pasar el mouse */
+}
+
+/* Ejemplo para una casilla de artículo */
+.articulos article {
+    background: #162447; /* Fondo azul oscuro para la casilla */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    padding: 1rem; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    max-width: 300px; /* Ancho máximo del artículo */
+    color: #fff; /* Color de texto blanco para contraste */
+    transition: background 0.3s; /* Transición suave al cambiar el fondo */
+}
+
+.articulos article h2 {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    margin: 0.5rem 0; /* Espacio arriba y abajo */
+}
+
+.articulos article .precio {
+    font-size: 1.2rem; /* Tamaño de fuente para el precio */
+    margin: 0.5rem 0; /* Espacio arriba y abajo */
+}
+
+.articulos article .btn-mas {
+    background: #00aaff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: background 0.2s;
+}
+
+.articulos article .btn-mas:hover {
+    background: #0099cc; /* Fondo azul más oscuro */
+}
+
+.articulos article .mas-info {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin: 1rem 0; /* Espacio arriba y abajo */
+}
+
+.articulos article .btn-comentar {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: #00aaff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.articulos article .btn-comentar:hover {
+    background: #0099cc; /* Fondo azul más oscuro al pasar el mouse */
+}
+
+/* Fila extra de productos igual que la primera fila */
+.articulos.fila-extra {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin: 2rem 0;
+}
+
+/* Estilo individual para cada artículo en fila-extra */
+.articulos.fila-extra article {
+    background: #162447;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+    max-width: 300px;
+    color: #fff;
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imágenes en productos extra igual que la primera fila */
+.articulos.fila-extra .img-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: box-shadow 0.2s, outline 0.2s;
+    overflow: hidden;
+}
+
+.articulos.fila-extra .img-btn img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* ======= ARTÍCULOS ======= */
+/* Aquí puedes agregar más estilos para los artículos si lo necesitas */
+
+/* ======= BARRA DIVISORA ======= */
+hr {
+  width: 90%;
+  margin: 2rem auto;
+  border: 0;
+  border-top: 3px solid #00aaff;
+}
+
+/* ======= TÍTULO DE SECCIÓN REDMI ======= */
+.seccion-marca {
+  text-align: center;
+  color: #0099cc;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+}
+
+.seccion-marca::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(to right, transparent, #00aaff, transparent);
+}
+
+/* ======= SOLO 5 CASILLAS DE PRODUCTOS REDMI ======= */
+.articulos.fila-extra {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin: 2rem 0;
+}
+
+/* Estilo individual para cada artículo en fila-extra */
+.articulos.fila-extra article {
+  background: #162447;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  max-width: 300px;
+  color: #fff;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Imágenes en productos extra igual que la primera fila */
+.articulos.fila-extra .img-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: box-shadow 0.2s, outline 0.2s;
+  overflow: hidden;
+}
+
+.articulos.fila-extra .img-btn img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* Encabezados blancos */
+h1, h2, h3, h4, h5, h6 {
+    color: #fff !important;
+}

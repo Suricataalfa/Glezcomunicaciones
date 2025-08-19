@@ -1,0 +1,16 @@
+{
+  "name": "mi-pagina-web",
+  "version": "1.0.0",
+  "description": "Una página web simple con HTML, CSS y JavaScript.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
